@@ -27,16 +27,16 @@ All packaged builds are stored on the [GitHub Releases](https://github.com/Fagan
 - Localized UI in English, Simplified Chinese, and Japanese
 - Local-first: files are copied to `~/Library/Application Support/Aster/Documents/`
 
-## Agent-Friendly Notes
+## Design
 
-Aster is intentionally small and easy for coding agents to inspect, build, and package:
+Aster is intentionally small, local, and easy to inspect:
 
-- Main app code lives in `Sources/PreviewerApp.swift`
+- The main app code lives in `Sources/PreviewerApp.swift`
 - Build command: `./build.sh`
 - Distribution command: `./package.sh --notarize`
 - No server, database, analytics SDK, package manager, or generated dependency lock-in
 - Local data paths are documented in [PRIVACY.md](PRIVACY.md)
-- The app is a good reference for a minimal SwiftUI + WKWebView macOS document previewer
+- The project is a compact reference for a SwiftUI + WKWebView macOS document previewer
 
 ## Build
 
@@ -113,9 +113,11 @@ Aster 是一个极简本地 macOS 文件预览器，支持 Markdown、HTML 和 C
 - 界面支持英文、简体中文、日文
 - 本地优先：文件复制到 `~/Library/Application Support/Aster/Documents/`
 
-### Agent 友好
+### 设计
 
-- 主代码在 `Sources/PreviewerApp.swift`
+Aster 保持小而清晰，方便检查、构建和分发：
+
+- 主应用代码在 `Sources/PreviewerApp.swift`
 - 构建命令：`./build.sh`
 - 分发命令：`./package.sh --notarize`
 - 没有服务端、数据库、统计 SDK 或复杂依赖
@@ -169,9 +171,11 @@ Aster は、Markdown、HTML、CSV ファイル向けの小さなローカル mac
 - UI は英語、簡体字中国語、日本語に対応
 - ローカル優先: ファイルは `~/Library/Application Support/Aster/Documents/` にコピーされます
 
-### Agent フレンドリー
+### 設計
 
-- メインコードは `Sources/PreviewerApp.swift`
+Aster は小さく、ローカルで動作し、構造を確認しやすいように作られています。
+
+- メインのアプリコードは `Sources/PreviewerApp.swift`
 - ビルドコマンド: `./build.sh`
 - 配布コマンド: `./package.sh --notarize`
 - サーバー、データベース、分析 SDK、複雑な依存関係はありません
