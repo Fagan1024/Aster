@@ -17,6 +17,32 @@ open "build/Aster.app"
 
 也可以直接用 Xcode 打开 `Aster.xcodeproj`。
 
+## 分发打包
+
+先在钥匙串里安装 Apple Developer 账号的 `Developer ID Application` 证书，然后运行：
+
+```bash
+./package.sh
+```
+
+生成的 DMG 在：
+
+```bash
+build/dist/Aster.dmg
+```
+
+如果已经配置好 `notarytool` 凭据，可以同时公证并 staple：
+
+```bash
+./package.sh --notarize
+```
+
+默认使用名为 `AsterNotary` 的 notarytool keychain profile。可以这样创建：
+
+```bash
+xcrun notarytool store-credentials AsterNotary --apple-id "你的 Apple ID" --team-id "你的 Team ID"
+```
+
 ## 功能
 
 - 拖放 Markdown / HTML / CSV 文件预览
