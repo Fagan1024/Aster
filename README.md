@@ -8,6 +8,14 @@ Keywords: macOS previewer, Markdown preview, HTML preview, CSV viewer, local-fir
 ![Swift](https://img.shields.io/badge/Swift-5.0-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+## Download
+
+Download the signed and notarized macOS installer:
+
+[Download Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+
+All packaged builds are stored on the [GitHub Releases](https://github.com/Fagan1024/Aster/releases) page, not in the source tree.
+
 ## Features
 
 - Preview `.md`, `.markdown`, `.html`, `.htm`, and `.csv` files
@@ -86,6 +94,14 @@ Aster 是一个极简本地 macOS 文件预览器，支持 Markdown、HTML 和 C
 
 关键词：macOS 预览器、Markdown 预览、HTML 预览、CSV 查看器、本地文件查看器、SwiftUI、WKWebView、离线文档预览。
 
+### 下载
+
+下载已签名并通过 Apple 公证的 macOS 安装包：
+
+[下载 Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+
+安装包放在 [GitHub Releases](https://github.com/Fagan1024/Aster/releases)，不会放在源码文件列表里。
+
 ### 功能
 
 - 预览 `.md`、`.markdown`、`.html`、`.htm` 和 `.csv` 文件
@@ -133,6 +149,14 @@ open "build/Aster.app"
 Aster は、Markdown、HTML、CSV ファイル向けの小さなローカル macOS プレビューアです。ファイルをウィンドウにドロップすると、ローカルのサイドバーに保存してプレビューできます。ファイルはサーバーにアップロードされません。
 
 キーワード: macOS プレビューア、Markdown プレビュー、HTML プレビュー、CSV ビューア、ローカルファイルビューア、SwiftUI、WKWebView、オフライン文書プレビュー。
+
+### ダウンロード
+
+署名済み・Apple 公証済みの macOS インストーラをダウンロードできます。
+
+[Aster.dmg をダウンロード](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+
+配布用パッケージはソースツリーではなく、[GitHub Releases](https://github.com/Fagan1024/Aster/releases) に保存されます。
 
 ### 機能
 
