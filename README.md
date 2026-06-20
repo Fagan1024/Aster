@@ -1,34 +1,100 @@
 # Aster
 
-一个极简 macOS 预览器：把 `.md`、`.markdown`、`.html`、`.htm` 或 `.csv` 文件拖进窗口就能查看。
-文件会复制到应用自己的资料库里，重启后仍然显示在左侧 sidebar。
+Aster is a tiny macOS previewer for Markdown, HTML, and CSV files. Drop files into the window, keep them in a local sidebar, and preview them without sending anything to a server.
 
-## 构建
+![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+## Features
+
+- Preview `.md`, `.markdown`, `.html`, `.htm`, and `.csv` files
+- Drag files into the app or pick one or more files from the add button
+- Keep imported files in a local library sidebar
+- Render HTML directly with WKWebView
+- Render Markdown as lightweight HTML
+- Render CSV as a scrollable table with quoted fields, escaped quotes, and multiline fields
+- Localized UI in English, Simplified Chinese, and Japanese
+- Local-first: files are copied to `~/Library/Application Support/Aster/Documents/`
+
+## Build
 
 ```bash
 ./build.sh
 ```
 
-构建完成后打开：
+Open the built app:
 
 ```bash
 open "build/Aster.app"
 ```
 
-也可以直接用 Xcode 打开 `Aster.xcodeproj`。
+You can also open `Aster.xcodeproj` in Xcode.
 
-## 分发打包
+## Package for Distribution
 
-先在钥匙串里安装 Apple Developer 账号的 `Developer ID Application` 证书，然后运行：
+Install a `Developer ID Application` certificate in Keychain first, then run:
 
 ```bash
 ./package.sh
 ```
 
-生成的 DMG 在：
+The signed DMG is created at:
 
 ```bash
 build/dist/Aster.dmg
+```
+
+To notarize and staple the DMG, configure a notarytool keychain profile first:
+
+```bash
+xcrun notarytool store-credentials AsterNotary --apple-id "YOUR_APPLE_ID" --team-id "YOUR_TEAM_ID"
+```
+
+Then run:
+
+```bash
+./package.sh --notarize
+```
+
+## Privacy
+
+Aster is a local previewer. It does not upload your files or include analytics. See [PRIVACY.md](PRIVACY.md).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
+---
+
+## 中文
+
+Aster 是一个极简 macOS 文件预览器，支持 Markdown、HTML 和 CSV。把文件拖进窗口，就可以在本地侧边栏里保存并预览；文件不会上传到任何服务器。
+
+### 功能
+
+- 预览 `.md`、`.markdown`、`.html`、`.htm` 和 `.csv` 文件
+- 支持拖拽导入，也可以点击添加按钮选择多个文件
+- 左侧 sidebar 保存已导入文件
+- HTML 使用 WKWebView 原样预览
+- Markdown 转成轻量 HTML 后预览
+- CSV 转成可滚动表格，支持双引号字段、双引号转义和字段内换行
+- 界面支持英文、简体中文、日文
+- 本地优先：文件复制到 `~/Library/Application Support/Aster/Documents/`
+
+### 构建
+
+```bash
+./build.sh
+open "build/Aster.app"
+```
+
+### 分发打包
+
+先在钥匙串里安装 Apple Developer 账号的 `Developer ID Application` 证书，然后运行：
+
+```bash
+./package.sh
 ```
 
 如果已经配置好 `notarytool` 凭据，可以同时公证并 staple：
@@ -37,19 +103,40 @@ build/dist/Aster.dmg
 ./package.sh --notarize
 ```
 
-默认使用名为 `AsterNotary` 的 notarytool keychain profile。可以这样创建：
+---
+
+## 日本語
+
+Aster は、Markdown、HTML、CSV ファイル向けの小さな macOS プレビューアです。ファイルをウィンドウにドロップすると、ローカルのサイドバーに保存してプレビューできます。ファイルはサーバーにアップロードされません。
+
+### 機能
+
+- `.md`、`.markdown`、`.html`、`.htm`、`.csv` ファイルをプレビュー
+- ドラッグ&ドロップ、または追加ボタンから複数ファイルを読み込み
+- 読み込んだファイルをローカルのサイドバーに保存
+- HTML は WKWebView でそのまま表示
+- Markdown は軽量 HTML に変換して表示
+- CSV はスクロール可能な表として表示し、引用符付きフィールド、エスケープされた引用符、複数行フィールドに対応
+- UI は英語、簡体字中国語、日本語に対応
+- ローカル優先: ファイルは `~/Library/Application Support/Aster/Documents/` にコピーされます
+
+### ビルド
 
 ```bash
-xcrun notarytool store-credentials AsterNotary --apple-id "你的 Apple ID" --team-id "你的 Team ID"
+./build.sh
+open "build/Aster.app"
 ```
 
-## 功能
+### 配布用パッケージ
 
-- 拖放 Markdown / HTML / CSV 文件预览
-- 点击按钮选择一个或多个本地文件
-- 左侧 sidebar 显示已添加的所有文件
-- 文件行通过 Markdown / HTML / CSV 图标区分格式
-- 添加后复制到 `~/Library/Application Support/Aster/Documents/`
-- HTML 使用 WKWebView 原样显示
-- Markdown 转成 HTML 后显示，支持标题、段落、列表、引用、代码块、粗体、斜体、链接和图片
-- CSV 转成可横向滚动的表格后显示，支持带引号的逗号和换行字段
+先に `Developer ID Application` 証明書を Keychain にインストールしてから実行します。
+
+```bash
+./package.sh
+```
+
+`notarytool` の認証情報を設定済みの場合は、公証と staple も同時に実行できます。
+
+```bash
+./package.sh --notarize
+```
