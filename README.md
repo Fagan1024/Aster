@@ -12,7 +12,7 @@ Keywords: macOS previewer, Markdown preview, HTML preview, CSV viewer, local-fir
 
 Download the signed and notarized macOS installer:
 
-[Download Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
+[Download Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.2.0/Aster.dmg)
 
 All packaged builds are stored on the [GitHub Releases](https://github.com/Fagan1024/Aster/releases) page, not in the source tree.
 
@@ -20,12 +20,12 @@ All packaged builds are stored on the [GitHub Releases](https://github.com/Fagan
 
 - Preview `.md`, `.markdown`, `.html`, `.htm`, and `.csv` files
 - Drag files into the app or pick one or more files from the add button
-- Keep imported files in a local library sidebar
+- Keep file references in a local library sidebar
 - Render HTML directly with WKWebView
 - Render Markdown as lightweight HTML
 - Render CSV as a scrollable table with quoted fields, escaped quotes, and multiline fields
 - Localized UI in English, Simplified Chinese, and Japanese
-- Local-first: files are copied to `~/Library/Application Support/Aster/Documents/`
+- Local-first: files stay in their original locations; Aster stores only the local file list in `~/Library/Application Support/Aster/Library.json`
 
 ## Design
 
@@ -98,7 +98,7 @@ Aster 是一个极简本地 macOS 文件预览器，支持 Markdown、HTML 和 C
 
 下载已签名并通过 Apple 公证的 macOS 安装包：
 
-[下载 Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
+[下载 Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.2.0/Aster.dmg)
 
 安装包放在 [GitHub Releases](https://github.com/Fagan1024/Aster/releases)，不会放在源码文件列表里。
 
@@ -111,7 +111,7 @@ Aster 是一个极简本地 macOS 文件预览器，支持 Markdown、HTML 和 C
 - Markdown 转成轻量 HTML 后预览
 - CSV 转成可滚动表格，支持双引号字段、双引号转义和字段内换行
 - 界面支持英文、简体中文、日文
-- 本地优先：文件复制到 `~/Library/Application Support/Aster/Documents/`
+- 本地优先：文件保留在原位置；Aster 只把本地文件列表保存在 `~/Library/Application Support/Aster/Library.json`
 
 ### 设计
 
@@ -156,7 +156,7 @@ Aster は、Markdown、HTML、CSV ファイル向けの小さなローカル mac
 
 署名済み・Apple 公証済みの macOS インストーラをダウンロードできます。
 
-[Aster.dmg をダウンロード](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
+[Aster.dmg をダウンロード](https://github.com/Fagan1024/Aster/releases/download/v1.2.0/Aster.dmg)
 
 配布用パッケージはソースツリーではなく、[GitHub Releases](https://github.com/Fagan1024/Aster/releases) に保存されます。
 
@@ -164,12 +164,12 @@ Aster は、Markdown、HTML、CSV ファイル向けの小さなローカル mac
 
 - `.md`、`.markdown`、`.html`、`.htm`、`.csv` ファイルをプレビュー
 - ドラッグ&ドロップ、または追加ボタンから複数ファイルを読み込み
-- 読み込んだファイルをローカルのサイドバーに保存
+- ファイル参照をローカルのサイドバーに保存
 - HTML は WKWebView でそのまま表示
 - Markdown は軽量 HTML に変換して表示
 - CSV はスクロール可能な表として表示し、引用符付きフィールド、エスケープされた引用符、複数行フィールドに対応
 - UI は英語、簡体字中国語、日本語に対応
-- ローカル優先: ファイルは `~/Library/Application Support/Aster/Documents/` にコピーされます
+- ローカル優先: ファイルは元の場所に残り、Aster はローカルのファイル一覧だけを `~/Library/Application Support/Aster/Library.json` に保存します
 
 ### 設計
 

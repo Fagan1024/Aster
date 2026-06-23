@@ -286,9 +286,6 @@ private struct PreviewerView: View {
     }
 
     private func remove(_ offsets: IndexSet) {
-        for offset in offsets {
-            LibraryStore.remove(items[offset])
-        }
         items.remove(atOffsets: offsets)
         LibraryStore.save(items)
         if let selection, !items.contains(where: { $0.id == selection }) {
@@ -490,7 +487,7 @@ private struct LibraryItem: Codable, Identifiable, Hashable {
     let addedAt: Date
 
     var url: URL {
-        URL(fileURLWithPath: storedPath)
+        URL(fileURLWithPath: sourcePath)
     }
 }
 
@@ -566,26 +563,15 @@ private enum LibraryStore {
     static func importFile(_ url: URL) throws -> LibraryItem {
         let normalizedURL = url.standardizedFileURL
         let kind = try FileKind(fileExtension: normalizedURL.pathExtension)
-        try FileManager.default.createDirectory(at: documentsURL, withIntermediateDirectories: true)
-
-        let destination = uniqueDestination(for: normalizedURL.lastPathComponent)
-        if FileManager.default.fileExists(atPath: destination.path) {
-            try FileManager.default.removeItem(at: destination)
-        }
-        try FileManager.default.copyItem(at: normalizedURL, to: destination)
 
         return LibraryItem(
             id: UUID(),
             name: normalizedURL.lastPathComponent,
-            storedPath: destination.path,
+            storedPath: normalizedURL.path,
             sourcePath: normalizedURL.path,
             kind: kind,
             addedAt: Date()
         )
-    }
-
-    static func remove(_ item: LibraryItem) {
-        try? FileManager.default.removeItem(at: item.url)
     }
 
     private static var supportURL: URL {
@@ -594,27 +580,8 @@ private enum LibraryStore {
         return baseURL.appendingPathComponent("Aster", isDirectory: true)
     }
 
-    private static var documentsURL: URL {
-        supportURL.appendingPathComponent("Documents", isDirectory: true)
-    }
-
     private static var indexURL: URL {
         supportURL.appendingPathComponent("Library.json")
-    }
-
-    private static func uniqueDestination(for fileName: String) -> URL {
-        let baseName = URL(fileURLWithPath: fileName).deletingPathExtension().lastPathComponent
-        let fileExtension = URL(fileURLWithPath: fileName).pathExtension
-        var candidate = documentsURL.appendingPathComponent(fileName)
-        var index = 2
-
-        while FileManager.default.fileExists(atPath: candidate.path) {
-            let nextName = fileExtension.isEmpty ? "\(baseName) \(index)" : "\(baseName) \(index).\(fileExtension)"
-            candidate = documentsURL.appendingPathComponent(nextName)
-            index += 1
-        }
-
-        return candidate
     }
 }
 
