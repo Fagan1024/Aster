@@ -62,6 +62,18 @@ private enum L10n {
         ja: "リストから削除"
     )
 
+    static let copyFile = text(
+        zh: "复制",
+        en: "Copy",
+        ja: "コピー"
+    )
+
+    static let showInFinder = text(
+        zh: "在 Finder 中显示",
+        en: "Show in Finder",
+        ja: "Finderで表示"
+    )
+
     static let previewUnavailable = text(
         zh: "无法预览",
         en: "Preview Unavailable",
@@ -307,8 +319,24 @@ private struct SidebarFileList: View {
                             selection = item.id
                         }
                         .contextMenu {
-                            Button(L10n.removeFromList, role: .destructive) {
+                            Button {
+                                copyToPasteboard(item)
+                            } label: {
+                                Label(L10n.copyFile, systemImage: "doc.on.doc")
+                            }
+
+                            Button {
+                                showInFinder(item)
+                            } label: {
+                                Label(L10n.showInFinder, systemImage: "folder")
+                            }
+
+                            Divider()
+
+                            Button(role: .destructive) {
                                 remove(item)
+                            } label: {
+                                Label(L10n.removeFromList, systemImage: "minus.circle")
                             }
                         }
                 }
@@ -317,6 +345,16 @@ private struct SidebarFileList: View {
             .padding(.vertical, 8)
         }
         .background(Color(nsColor: .controlBackgroundColor))
+    }
+
+    private func copyToPasteboard(_ item: LibraryItem) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.writeObjects([item.url as NSURL])
+    }
+
+    private func showInFinder(_ item: LibraryItem) {
+        NSWorkspace.shared.activateFileViewerSelecting([item.url])
     }
 }
 

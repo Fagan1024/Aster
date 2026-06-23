@@ -12,7 +12,7 @@ Keywords: macOS previewer, Markdown preview, HTML preview, CSV viewer, local-fir
 
 Download the signed and notarized macOS installer:
 
-[Download Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+[Download Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
 
 All packaged builds are stored on the [GitHub Releases](https://github.com/Fagan1024/Aster/releases) page, not in the source tree.
 
@@ -98,7 +98,7 @@ Aster 是一个极简本地 macOS 文件预览器，支持 Markdown、HTML 和 C
 
 下载已签名并通过 Apple 公证的 macOS 安装包：
 
-[下载 Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+[下载 Aster.dmg](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
 
 安装包放在 [GitHub Releases](https://github.com/Fagan1024/Aster/releases)，不会放在源码文件列表里。
 
@@ -156,7 +156,7 @@ Aster は、Markdown、HTML、CSV ファイル向けの小さなローカル mac
 
 署名済み・Apple 公証済みの macOS インストーラをダウンロードできます。
 
-[Aster.dmg をダウンロード](https://github.com/Fagan1024/Aster/releases/download/v1.0.0/Aster.dmg)
+[Aster.dmg をダウンロード](https://github.com/Fagan1024/Aster/releases/download/v1.1.0/Aster.dmg)
 
 配布用パッケージはソースツリーではなく、[GitHub Releases](https://github.com/Fagan1024/Aster/releases) に保存されます。
 
